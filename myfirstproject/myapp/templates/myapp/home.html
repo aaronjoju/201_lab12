@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add your CSS styles here */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #4285f4;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+#app-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.app-card {
+    width: 300px;
+    background-color: white;
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.app-image {
+    max-width: 100%;
+}
+
+.app-title {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.app-description {
+    font-size: 14px;
+    color: #777;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Google Play Store</h1>
+    </header>
+    <main>
+        <section id="app-list">
+            <!-- App listings will be dynamically populated using JavaScript -->
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+<script>
+    // Sample app data (replace with actual data)
+const apps = [
+    {
+        name: 'EA SPORTS FC™ MOBILE 24',
+        description: 'Join the EA SPORTS™ football fan club! Train and build your dream Ultimate Team™ of legendary football stars and put them to the test. Collect Player Items of world-class talent like Vini Jr., Erling Haaland, Sunil Chhetri, Virgil van Dijk, and Son Heung-min. Play as Real Madrid from LALIGA EA SPORTS, or Manchester City from the Premier League and many more. Score goals with some of your favorite players as you level up your dream team of football stars from the 23/24 season. Compete against the best in PvP modes including Head-to-Head, VS Attack and Manager Mode.',
+        imageUrl: 'https://play-lh.googleusercontent.com/N90YiH65g0jWvF15_UO9aCNbSuCETmpkneM6SFn_4yptOepu8a0fYeF_X7GtjKPDzTPP=w1052-h592-rw',
+        url: 'https://play.google.com/store/apps/details?id=com.ea.gp.fifamobile&hl=en_IN&gl=US'
+    },
+    {
+        name: 'Plants vs. Zombies™',
+        description: 'Get ready to soil your plants as a mob of fun-loving zombies is about to invade your home. Use your arsenal of 49 zombie-zapping plants — peashooters, wall-nuts, cherry bombs and more — to mulchify 26 types of zombies before they break down your door.',
+        imageUrl: 'https://play-lh.googleusercontent.com/wZB6aZQDglCe9oClsSWrTpJBsLgjnn9hv1sncFXlJeB9yfxGnFGSK06dbTDYnVTC5w=w1052-h592-rw',
+        url: 'https://play.google.com/store/apps/details?id=com.ea.game.pvzfree_row&hl=en_IN&gl=US'
+    },
+    {
+        name: 'Madden NFL 24 Mobile Football',
+        description: 'Kickoff for the 10th Season on the Gridiron with Madden NFL 24 Mobile Football. Authentic sports game action, real-world events and mobile-first visuals await in the world’s most immersive NFL Football experience on mobile.Journey back in time with vintage programs, iconic artwork and unforgettable players that left their mark on the game. Football manager or armchair QB - touchdown and enjoy the celebrated sport with new and unique experiences capped by an iconic Madden Mobile legend from a past season. Coach your team to victory with the excitement of new visual enhancements, the return of Coaches',
+        imageUrl: 'https://play-lh.googleusercontent.com/zIQ2IK5RdNmUqVuSuZnLouk5OuCXbc2yqXS5a0TGbGWy3ksww9h9Y6CSpk_htWHYFw=w1052-h592-rw',
+        url: 'https://play.google.com/store/apps/details?id=com.ea.gp.maddennfl21mobile&hl=en_IN&gl=US'
+    }
+];
+
+// Function to populate the app list
+function populateAppList() {
+    const appList = document.getElementById('app-list');
+
+    apps.forEach((app) => {
+        const appCard = document.createElement('div');
+        appCard.classList.add('app-card');
+
+        appCard.innerHTML = `
+            <img class="app-image" src="${app.imageUrl}" alt="${app.name}">
+            <h2 class="app-title">${app.name}</h2>
+            <p class="app-description">${app.description}</p>
+            <a href="${app.url}" target="_blank">Download on Google Play</a>
+        `;
+
+        appList.appendChild(appCard);
+    });
+}
+
+// Call the function to populate the app list
+populateAppList();
+
+</script>
+</html>
